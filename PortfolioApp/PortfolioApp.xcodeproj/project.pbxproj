@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */; };
 		BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B032C2A58EF003D7901 /* AppDelegate.swift */; };
 		BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */; };
 		BBA48B082C2A58EF003D7901 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B072C2A58EF003D7901 /* ViewController.swift */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		BBA48B002C2A58EF003D7901 /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA48B032C2A58EF003D7901 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 				BBA48B192C2A8049003D7901 /* UnsplashAPI.swift */,
 				BBA48B1B2C2A819A003D7901 /* Structs.swift */,
 				BBA48B092C2A58EF003D7901 /* Main.storyboard */,
+				BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */,
 				BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */,
 				BBA48B172C2A77B5003D7901 /* HomeViewController.swift */,
 				BBA48B0C2C2A58F1003D7901 /* Assets.xcassets */,
@@ -159,6 +162,7 @@
 				BBA48B1E2C2A8A89003D7901 /* CollectionViewCell.swift in Sources */,
 				BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */,
 				BBA48B202C2A9D6B003D7901 /* PhotoInfoViewController.swift in Sources */,
+				BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */,
 				BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */,
 				BBA48B182C2A77B5003D7901 /* HomeViewController.swift in Sources */,
 			);
