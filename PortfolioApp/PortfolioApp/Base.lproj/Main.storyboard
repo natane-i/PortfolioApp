@@ -150,27 +150,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0OP-xS-fZS">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XkB-a9-tYv">
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
-                            </imageView>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0OP-xS-fZS">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="715"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="0OP-xS-fZS" firstAttribute="top" secondItem="svV-ON-6jS" secondAttribute="top" id="1qB-6t-0N5"/>
+                                    <constraint firstItem="svV-ON-6jS" firstAttribute="bottom" secondItem="0OP-xS-fZS" secondAttribute="bottom" id="Pt0-Ek-8w4"/>
+                                    <constraint firstItem="0OP-xS-fZS" firstAttribute="leading" secondItem="svV-ON-6jS" secondAttribute="leading" id="TlG-XJ-qtC"/>
+                                    <constraint firstItem="svV-ON-6jS" firstAttribute="trailing" secondItem="0OP-xS-fZS" secondAttribute="trailing" id="xjU-Nz-kfA"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="5Te-EG-xsC"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="svV-ON-6jS"/>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zl5-c6-IcP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="0OP-xS-fZS" firstAttribute="top" secondItem="zl5-c6-IcP" secondAttribute="top" id="0CN-Lt-EZn"/>
-                            <constraint firstItem="0OP-xS-fZS" firstAttribute="leading" secondItem="zl5-c6-IcP" secondAttribute="leading" id="Zeq-wc-qJr"/>
-                            <constraint firstItem="zl5-c6-IcP" firstAttribute="bottom" secondItem="0OP-xS-fZS" secondAttribute="bottom" id="b2A-v3-bdc"/>
-                            <constraint firstItem="zl5-c6-IcP" firstAttribute="trailing" secondItem="0OP-xS-fZS" secondAttribute="trailing" id="k3T-xn-27G"/>
-                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="B8M-jr-dZe"/>
                     <connections>
                         <outlet property="imageView" destination="0OP-xS-fZS" id="hlu-jf-Spn"/>
+                        <outlet property="scrollView" destination="XkB-a9-tYv" id="nHQ-gv-dLA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZa-aY-eoe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3060" y="-439"/>
+            <point key="canvasLocation" x="3058.7786259541986" y="-439.43661971830988"/>
         </scene>
     </scenes>
     <resources>
