@@ -44,6 +44,16 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
             }
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ToInfo" {
+            if let photoInfoVC = segue.destination as? PhotoInfoViewController,
+               let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
+                photoInfoVC.imageURLs = photos
+                photoInfoVC.currentIndex = selectedIndexPath.item
+            }
+        }
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
