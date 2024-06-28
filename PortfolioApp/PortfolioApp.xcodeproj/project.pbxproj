@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB261AED2C2E803D006E707F /* ColorTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */; };
+		BB261AEF2C2E972C006E707F /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB261AEE2C2E972C006E707F /* FooterTabView.xib */; };
+		BB261AF12C2E9FB3006E707F /* PhotoInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */; };
 		BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */; };
 		BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B032C2A58EF003D7901 /* AppDelegate.swift */; };
 		BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */; };
@@ -19,9 +22,14 @@
 		BBA48B1C2C2A819A003D7901 /* Structs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B1B2C2A819A003D7901 /* Structs.swift */; };
 		BBA48B1E2C2A8A89003D7901 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */; };
 		BBA48B202C2A9D6B003D7901 /* PhotoInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B1F2C2A9D6B003D7901 /* PhotoInfoViewController.swift */; };
+		BBE272552C2E6B3F005C21BE /* TagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE272542C2E6B3F005C21BE /* TagViewController.swift */; };
+		BBE272572C2E6B5A005C21BE /* TagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBE272562C2E6B5A005C21BE /* TagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorTagCollectionViewCell.swift; path = PortfolioApp/Controller/ColorTagCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		BB261AEE2C2E972C006E707F /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
+		BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoView.xib; sourceTree = "<group>"; };
 		BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
 		BBA48B002C2A58EF003D7901 /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA48B032C2A58EF003D7901 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +43,9 @@
 		BBA48B192C2A8049003D7901 /* UnsplashAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashAPI.swift; sourceTree = "<group>"; };
 		BBA48B1B2C2A819A003D7901 /* Structs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Structs.swift; sourceTree = "<group>"; };
 		BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
-		BBA48B1F2C2A9D6B003D7901 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		BBA48B1F2C2A9D6B003D7901 /* PhotoInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PhotoInfoViewController.swift; path = PortfolioApp/Controller/PhotoInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		BBE272542C2E6B3F005C21BE /* TagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TagViewController.swift; path = PortfolioApp/Controller/TagViewController.swift; sourceTree = SOURCE_ROOT; };
+		BBE272562C2E6B5A005C21BE /* TagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +59,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB261AEB2C2E7460006E707F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */,
+				BBE272562C2E6B5A005C21BE /* TagCollectionViewCell.swift */,
+				BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		BBA48AF72C2A58EF003D7901 = {
 			isa = PBXGroup;
 			children = (
@@ -68,21 +88,48 @@
 		BBA48B022C2A58EF003D7901 /* PortfolioApp */ = {
 			isa = PBXGroup;
 			children = (
-				BBA48B1F2C2A9D6B003D7901 /* PhotoInfoViewController.swift */,
 				BBA48B032C2A58EF003D7901 /* AppDelegate.swift */,
 				BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */,
-				BBA48B072C2A58EF003D7901 /* ViewController.swift */,
-				BBA48B192C2A8049003D7901 /* UnsplashAPI.swift */,
-				BBA48B1B2C2A819A003D7901 /* Structs.swift */,
-				BBA48B092C2A58EF003D7901 /* Main.storyboard */,
-				BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */,
-				BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */,
-				BBA48B172C2A77B5003D7901 /* HomeViewController.swift */,
-				BBA48B0C2C2A58F1003D7901 /* Assets.xcassets */,
+				BBE2725A2C2E6C4F005C21BE /* Main */,
+				BBE272592C2E6C2F005C21BE /* View */,
+				BBE2725B2C2E6C5C005C21BE /* Controller */,
 				BBA48B0E2C2A58F1003D7901 /* LaunchScreen.storyboard */,
+				BBA48B0C2C2A58F1003D7901 /* Assets.xcassets */,
 				BBA48B112C2A58F1003D7901 /* Info.plist */,
 			);
 			path = PortfolioApp;
+			sourceTree = "<group>";
+		};
+		BBE272592C2E6C2F005C21BE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BBA48B192C2A8049003D7901 /* UnsplashAPI.swift */,
+				BBA48B1B2C2A819A003D7901 /* Structs.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBE2725A2C2E6C4F005C21BE /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BBA48B092C2A58EF003D7901 /* Main.storyboard */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		BBE2725B2C2E6C5C005C21BE /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BBA48B072C2A58EF003D7901 /* ViewController.swift */,
+				BBA48B172C2A77B5003D7901 /* HomeViewController.swift */,
+				BBE272542C2E6B3F005C21BE /* TagViewController.swift */,
+				BBA48B1F2C2A9D6B003D7901 /* PhotoInfoViewController.swift */,
+				BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */,
+				BB261AEB2C2E7460006E707F /* Cells */,
+				BB261AEE2C2E972C006E707F /* FooterTabView.xib */,
+				BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,9 +190,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB261AF12C2E9FB3006E707F /* PhotoInfoView.xib in Resources */,
 				BBA48B102C2A58F1003D7901 /* LaunchScreen.storyboard in Resources */,
 				BBA48B0D2C2A58F1003D7901 /* Assets.xcassets in Resources */,
 				BBA48B0B2C2A58EF003D7901 /* Main.storyboard in Resources */,
+				BB261AEF2C2E972C006E707F /* FooterTabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,13 +207,16 @@
 			files = (
 				BBA48B1C2C2A819A003D7901 /* Structs.swift in Sources */,
 				BBA48B082C2A58EF003D7901 /* ViewController.swift in Sources */,
+				BB261AED2C2E803D006E707F /* ColorTagCollectionViewCell.swift in Sources */,
 				BBA48B1A2C2A8049003D7901 /* UnsplashAPI.swift in Sources */,
 				BBA48B1E2C2A8A89003D7901 /* CollectionViewCell.swift in Sources */,
 				BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */,
 				BBA48B202C2A9D6B003D7901 /* PhotoInfoViewController.swift in Sources */,
 				BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */,
+				BBE272552C2E6B3F005C21BE /* TagViewController.swift in Sources */,
 				BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */,
 				BBA48B182C2A77B5003D7901 /* HomeViewController.swift in Sources */,
+				BBE272572C2E6B5A005C21BE /* TagCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
