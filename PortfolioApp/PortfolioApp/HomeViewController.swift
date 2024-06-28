@@ -60,7 +60,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let topCellWidth = collectionView.bounds.width
-        let otherCellWidth = (collectionView.bounds.width - 12) / 2
+        let otherCellWidth = (topCellWidth - 15.0) / 2
         
         switch indexPath.row {
         case 0:
@@ -71,11 +71,11 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+        return 15.0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 6
+        return 7.5
     }
     
 }
