@@ -9,59 +9,39 @@ import UIKit
 
 class TagViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    @IBOutlet weak var colorTagCollectionView: UICollectionView!
     @IBOutlet weak var tagCollectionView: UICollectionView!
+    
+    @IBOutlet var colorTagButtons: [UIButton]!
     
     var photos: [String] = []
     let unsplashColorAPI = UnsplashColorAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        colorTagCollectionView.delegate = self
-        colorTagCollectionView.dataSource = self
+        
         tagCollectionView.dataSource = self
         tagCollectionView.delegate = self
         
-        imageFethcer(tag: .black)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if collectionView == tagCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagImageCell", for: indexPath) as! TagCollectionViewCell
-            
-            let imageURL = photos[indexPath.item]
-            cell.configure(with: imageURL)
-            
-            return cell
-        } else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ColorTagCell", for: indexPath) as! ColorTagCollectionViewCell
-            
-            let tag = ColorTags.allCases[indexPath.row]
-            cell.colorLabel.text = tag.rawValue
-            return cell
-            
+        for (index, button) in colorTagButtons.enumerated() {
+            button.tag = index
+            let selectedTag = ColorTags.allCases[button.tag]
+            button.addTarget(self, action: #selector(colorTagButtonTapped(_:)), for: .touchUpInside)
         }
+        
+        
+        imageFethcer(tag: .red)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if collectionView == colorTagCollectionView {
-            let selectedTag = ColorTags.allCases[indexPath.row]
-            unsplashColorAPI.fetchUnsplashAPI(for: selectedTag) { [weak self] images in
+    @objc func colorTagButtonTapped(_ sender: UIButton) {
+        let selectedTag = ColorTags.allCases[sender.tag]
+        DispatchQueue.global().async {
+            self.unsplashColorAPI.fetchUnsplashAPI(for: selectedTag) { [weak self] images in
                 DispatchQueue.main.async {
                     self?.photos = images
-                    print(selectedTag.rawValue)
                     self?.tagCollectionView.reloadData()
+                    self?.tagCollectionView.collectionViewLayout.invalidateLayout()
                 }
             }
-        }
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if collectionView == tagCollectionView {
-            return photos.count
-        } else {
-            return ColorTags.allCases.count
         }
     }
     
@@ -70,9 +50,30 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
             DispatchQueue.main.async {
                 self?.photos = images
                 self?.tagCollectionView.reloadData()
+                self?.tagCollectionView.collectionViewLayout.invalidateLayout()
             }
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagImageCell", for: indexPath) as! TagCollectionViewCell
+        print("Dequeuing cell at indexPath: \(indexPath)")
+        print("Cell frame: \(cell.frame)")
+            print("Image view frame: \(cell.imageView.frame)")
+            
+        let imageURL = photos[indexPath.item]
+        cell.configure(with: imageURL)
+        print(cell.imageView.frame)
+        print(cell.bounds.size)
+        return cell
+        
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return photos.count
+    }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToInfoFromTag" {
@@ -88,19 +89,16 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
 extension TagViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        if collectionView == tagCollectionView {
-            let topCellWidth = collectionView.bounds.width
-            let otherCellWidth = (topCellWidth - 18.0) / 2
-            
-            switch indexPath.row {
-            case 0:
-                return CGSize(width: topCellWidth, height: topCellWidth)
-            default:
-                return CGSize(width: otherCellWidth, height: otherCellWidth)
-            }
-        } else {
-            let labelSize = (collectionView.bounds.width - 18.0) / 2
-            return CGSize(width: labelSize, height: labelSize)
+
+        let contentInsets = collectionView.contentInset
+        let topCellWidth = collectionView.bounds.width - contentInsets.left - contentInsets.right
+        let otherCellWidth = (topCellWidth - 18.0) / 2
+
+        switch indexPath.row {
+        case 0:
+            return CGSize(width: topCellWidth, height: topCellWidth)
+        default:
+            return CGSize(width: otherCellWidth, height: otherCellWidth)
         }
     }
     

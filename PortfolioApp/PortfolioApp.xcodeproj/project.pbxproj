@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		BB261AED2C2E803D006E707F /* ColorTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */; };
 		BB261AEF2C2E972C006E707F /* FooterTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB261AEE2C2E972C006E707F /* FooterTabView.xib */; };
 		BB261AF12C2E9FB3006E707F /* PhotoInfoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */; };
 		BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */; };
+		BB5B7B562C3239AB0000AB7A /* FooterTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB5B7B552C3239AB0000AB7A /* FooterTabView.swift */; };
 		BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B032C2A58EF003D7901 /* AppDelegate.swift */; };
 		BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */; };
 		BBA48B082C2A58EF003D7901 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBA48B072C2A58EF003D7901 /* ViewController.swift */; };
@@ -27,10 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ColorTagCollectionViewCell.swift; path = PortfolioApp/Controller/ColorTagCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		BB261AEE2C2E972C006E707F /* FooterTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FooterTabView.xib; sourceTree = "<group>"; };
 		BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoInfoView.xib; sourceTree = "<group>"; };
 		BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		BB5B7B552C3239AB0000AB7A /* FooterTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabView.swift; sourceTree = "<group>"; };
 		BBA48B002C2A58EF003D7901 /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBA48B032C2A58EF003D7901 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBA48B052C2A58EF003D7901 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,7 +64,6 @@
 			children = (
 				BBA48B1D2C2A8A89003D7901 /* CollectionViewCell.swift */,
 				BBE272562C2E6B5A005C21BE /* TagCollectionViewCell.swift */,
-				BB261AEC2C2E803D006E707F /* ColorTagCollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -127,6 +126,7 @@
 				BB3707CD2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift */,
 				BB261AEB2C2E7460006E707F /* Cells */,
 				BB261AEE2C2E972C006E707F /* FooterTabView.xib */,
+				BB5B7B552C3239AB0000AB7A /* FooterTabView.swift */,
 				BB261AF02C2E9FB3006E707F /* PhotoInfoView.xib */,
 			);
 			path = Controller;
@@ -207,12 +207,12 @@
 			files = (
 				BBA48B1C2C2A819A003D7901 /* Structs.swift in Sources */,
 				BBA48B082C2A58EF003D7901 /* ViewController.swift in Sources */,
-				BB261AED2C2E803D006E707F /* ColorTagCollectionViewCell.swift in Sources */,
 				BBA48B1A2C2A8049003D7901 /* UnsplashAPI.swift in Sources */,
 				BBA48B1E2C2A8A89003D7901 /* CollectionViewCell.swift in Sources */,
 				BBA48B042C2A58EF003D7901 /* AppDelegate.swift in Sources */,
 				BBA48B202C2A9D6B003D7901 /* PhotoInfoViewController.swift in Sources */,
 				BB3707CE2C2AA1BA00EB8A62 /* PhotoDetailViewController.swift in Sources */,
+				BB5B7B562C3239AB0000AB7A /* FooterTabView.swift in Sources */,
 				BBE272552C2E6B3F005C21BE /* TagViewController.swift in Sources */,
 				BBA48B062C2A58EF003D7901 /* SceneDelegate.swift in Sources */,
 				BBA48B182C2A77B5003D7901 /* HomeViewController.swift in Sources */,

@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class TagCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     
@@ -28,8 +26,12 @@ class TagCollectionViewCell: UICollectionViewCell {
             }
             
             DispatchQueue.main.async {
+                // 画像のサイズをセルのサイズに合わせて設定する
+                self.imageView.frame = self.bounds
+                self.imageView.contentMode = .scaleAspectFill
                 self.imageView.image = image
             }
         }.resume()
     }
+
 }

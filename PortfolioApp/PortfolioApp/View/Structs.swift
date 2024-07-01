@@ -25,6 +25,6 @@ enum ColorTags: String, CaseIterable {
     case blue = "blue"
     case green = "green"
     case yellow = "yellow"
-    case black = "black"
     case white = "white"
+    case black = "black"
 }

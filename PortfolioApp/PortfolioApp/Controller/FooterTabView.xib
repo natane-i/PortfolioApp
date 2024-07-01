@@ -8,7 +8,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FooterTabView" customModule="PortfolioApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="cnB-eF-Poo" id="p1j-uy-U2D"/>
+                <outlet property="shadowView" destination="GhX-Aw-mkK" id="57F-Y6-HoG"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="393" height="64"/>
@@ -48,6 +53,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapHome:" destination="-1" eventType="touchUpInside" id="MQi-RG-7vH"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -87,6 +95,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapTag:" destination="-1" eventType="touchUpInside" id="omN-5r-JHA"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -126,6 +137,9 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="131" height="48"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain"/>
+                                                    <connections>
+                                                        <action selector="didTapInfo:" destination="-1" eventType="touchUpInside" id="m3Q-Xt-COp"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -162,7 +176,6 @@
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="GhX-Aw-mkK" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Xwd-g2-OKe"/>
                 <constraint firstItem="GhX-Aw-mkK" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="dfk-kt-baJ"/>
