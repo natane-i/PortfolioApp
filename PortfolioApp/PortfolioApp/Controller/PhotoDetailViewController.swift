@@ -12,7 +12,7 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var imageURLs: [String] = []
+    var photoDatas: [PhotoData] = []
     var currentIndex: Int = 0
     
     override func viewDidLoad() {
@@ -25,7 +25,8 @@ class PhotoDetailViewController: UIViewController {
     }
     
     func loadImage(at index: Int) {
-        let imageURL = imageURLs[index]
+        let photoData = photoDatas[index]
+        let imageURL = photoData.urls.regular
         
         guard let url = URL(string: imageURL) else {
             return

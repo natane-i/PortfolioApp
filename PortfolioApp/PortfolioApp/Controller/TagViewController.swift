@@ -13,8 +13,10 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     @IBOutlet var colorTagButtons: [UIButton]!
     
+    var photoDatas: [PhotoData] = []
     var photos: [String] = []
-    let unsplashColorAPI = UnsplashColorAPI()
+    var labels: [String] = []
+    let unsplashAPI = UnsplashAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,64 +24,48 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
         tagCollectionView.dataSource = self
         tagCollectionView.delegate = self
         
+        imageFethcer(tag: .red)
+        
         for (index, button) in colorTagButtons.enumerated() {
             button.tag = index
-            let selectedTag = ColorTags.allCases[button.tag]
             button.addTarget(self, action: #selector(colorTagButtonTapped(_:)), for: .touchUpInside)
         }
-        
-        
-        imageFethcer(tag: .red)
     }
     
     @objc func colorTagButtonTapped(_ sender: UIButton) {
         let selectedTag = ColorTags.allCases[sender.tag]
-        DispatchQueue.global().async {
-            self.unsplashColorAPI.fetchUnsplashAPI(for: selectedTag) { [weak self] images in
-                DispatchQueue.main.async {
-                    self?.photos = images
-                    self?.tagCollectionView.reloadData()
-                    self?.tagCollectionView.collectionViewLayout.invalidateLayout()
-                }
-            }
-        }
+        imageFethcer(tag: selectedTag)
     }
     
     func imageFethcer(tag: ColorTags) {
-        unsplashColorAPI.fetchUnsplashAPI(for: tag) { [weak self] images in
+        unsplashAPI.fetchUnsplashColorAPI(for: tag) { [weak self] result in
             DispatchQueue.main.async {
-                self?.photos = images
+                self?.photoDatas = result
                 self?.tagCollectionView.reloadData()
-                self?.tagCollectionView.collectionViewLayout.invalidateLayout()
             }
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagImageCell", for: indexPath) as! TagCollectionViewCell
-        print("Dequeuing cell at indexPath: \(indexPath)")
-        print("Cell frame: \(cell.frame)")
-            print("Image view frame: \(cell.imageView.frame)")
             
-        let imageURL = photos[indexPath.item]
-        cell.configure(with: imageURL)
-        print(cell.imageView.frame)
-        print(cell.bounds.size)
+        let photoData = photoDatas[indexPath.item]
+        let imageURL = photoData.urls.regular
+        let userName = photoData.user.name
+        cell.configure(with: imageURL, userName: userName)
         return cell
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photoDatas.count
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToInfoFromTag" {
             if let photoInfoVC = segue.destination as? PhotoInfoViewController,
                let selectedIndexPath = tagCollectionView.indexPathsForSelectedItems?.first {
-                photoInfoVC.imageURLs = photos
+                photoInfoVC.photoDatas = photoDatas
                 photoInfoVC.currentIndex = selectedIndexPath.item
             }
         }
@@ -87,12 +73,11 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
 }
 
 extension TagViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let contentInsets = collectionView.contentInset
-        let topCellWidth = collectionView.bounds.width - contentInsets.left - contentInsets.right
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let topCellWidth = collectionView.bounds.size.width
         let otherCellWidth = (topCellWidth - 18.0) / 2
+        print(topCellWidth, otherCellWidth)
 
         switch indexPath.row {
         case 0:
@@ -101,13 +86,20 @@ extension TagViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: otherCellWidth, height: otherCellWidth)
         }
     }
-    
+
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 18.0
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 9.0
     }
-    
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        
+    }
+
 }

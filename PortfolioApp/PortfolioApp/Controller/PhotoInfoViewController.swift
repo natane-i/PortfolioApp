@@ -10,8 +10,11 @@ import UIKit
 class PhotoInfoViewController: UIViewController {
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var userNameLabel: UILabel!
+    @IBOutlet weak var distributorLabel: UILabel!
+    @IBOutlet weak var updateAtLabel: UILabel!
     
-    var imageURLs: [String] = []
+    var photoDatas: [PhotoData] = []
     var currentIndex: Int = 0
     
     override func viewDidLoad() {
@@ -26,7 +29,8 @@ class PhotoInfoViewController: UIViewController {
     }
 
     func loadImage(at index: Int) {
-        let imageURL = imageURLs[index]
+        let photoData = photoDatas[index]
+        let imageURL = photoData.urls.regular
         
         guard let url = URL(string: imageURL) else {
             return
@@ -55,8 +59,8 @@ class PhotoInfoViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDetail" {
             if let photoDetailVC = segue.destination as? PhotoDetailViewController {
-                photoDetailVC.imageURLs = self.imageURLs
-                photoDetailVC.currentIndex = self.currentIndex
+                photoDetailVC.photoDatas = photoDatas
+                photoDetailVC.currentIndex = currentIndex
             }
         }
     }

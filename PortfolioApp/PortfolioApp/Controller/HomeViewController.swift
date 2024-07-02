@@ -11,14 +11,13 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     
     @IBOutlet weak var collectionView: UICollectionView!
     
-    var photos: [String] = []
+    var photoDatas: [PhotoData] = []
     let unsplashAPI = UnsplashAPI()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
         
         imageFethcer()
     }
@@ -26,20 +25,22 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "LatestImageCell", for: indexPath) as! CollectionViewCell
         
-        let imageURL = photos[indexPath.item]
-        cell.configure(with: imageURL)
+        let photoData = photoDatas[indexPath.item]
+        let imageURL = photoData.urls.regular
+        let userName = photoData.user.name
+        cell.configure(with: imageURL, userName: userName)
         
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return photos.count
+        return photoDatas.count
     }
     
     func imageFethcer() {
-        unsplashAPI.fetchUnsplashAPI() { [weak self] images in
+        unsplashAPI.fetchUnsplashAPI() { [weak self] result in
             DispatchQueue.main.async {
-                self?.photos = images
+                self?.photoDatas = result
                 self?.collectionView.reloadData()
             }
         }
@@ -49,7 +50,7 @@ class HomeViewController: UIViewController, UICollectionViewDelegate, UICollecti
         if segue.identifier == "ToInfo" {
             if let photoInfoVC = segue.destination as? PhotoInfoViewController,
                let selectedIndexPath = collectionView.indexPathsForSelectedItems?.first {
-                photoInfoVC.imageURLs = photos
+                photoInfoVC.photoDatas = photoDatas
                 photoInfoVC.currentIndex = selectedIndexPath.item
             }
         }
@@ -76,6 +77,12 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 9.0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        return UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        
     }
     
 }

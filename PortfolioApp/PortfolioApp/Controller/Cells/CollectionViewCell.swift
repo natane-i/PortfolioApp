@@ -9,8 +9,9 @@ import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var label: UILabel!
     
-    func configure(with imageURL: String) {
+    func configure(with imageURL: String, userName: String) {
         guard let url = URL(string: imageURL) else {
             return
         }
@@ -27,7 +28,10 @@ class CollectionViewCell: UICollectionViewCell {
             
             DispatchQueue.main.async {
                 self.imageView.image = image
+                self.label.text = userName
             }
         }.resume()
     }
+    
+    
 }

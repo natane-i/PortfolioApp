@@ -19,7 +19,7 @@ class ViewController: UIViewController, FooterTabViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        switchViewController(selectedTab: .tag)
+        switchViewController(selectedTab: .home)
     }
     
     private lazy var homeViewController: HomeViewController = {
@@ -68,7 +68,7 @@ class ViewController: UIViewController, FooterTabViewDelegate {
     }
     
     func footerTabView(_ footerTabView: FooterTabView, didselectTab: FooterTab) {
-       
+       switchViewController(selectedTab: didselectTab)
     }
     
  

@@ -10,7 +10,15 @@ import Foundation
 class UnsplashAPI {
     private let accessKey = "ES6CV5zqrpnRs1O_dPaGjbijJGt8De_CBV7ne0cr-ME"
     
-    func fetchUnsplashAPI(completion: @escaping ([String]) -> Void) {
+    var jsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+        decoder.dateDecodingStrategy = .formatted(dateFormatter)
+        return decoder
+    }()
+    
+    func fetchUnsplashAPI(completion: @escaping ([PhotoData]) -> Void) {
         guard let url = URL(string: "https://api.unsplash.com/photos/?per_page=5&order_by=latest&client_id=\(accessKey)") else {
             completion([])
             return
@@ -29,9 +37,8 @@ class UnsplashAPI {
             }
             
             do {
-                let result = try JSONDecoder().decode([PhotoData].self, from: data)
-                let images = result.map { $0.urls.regular }
-                completion(images)
+                let result = try self.jsonDecoder.decode([PhotoData].self, from: data)
+                completion(result)
             } catch {
                 print("Error in decoding: \(error.localizedDescription)")
                 print("Raw data: \(String(data: data, encoding: .utf8) ?? "")")
@@ -39,12 +46,8 @@ class UnsplashAPI {
             }
         }.resume()
     }
-}
 
-class UnsplashColorAPI {
-    private let accessKey = "ES6CV5zqrpnRs1O_dPaGjbijJGt8De_CBV7ne0cr-ME"
-
-    func fetchUnsplashAPI(for tag: ColorTags, completion: @escaping ([String]) -> Void) {
+    func fetchUnsplashColorAPI(for tag: ColorTags, completion: @escaping ([PhotoData]) -> Void) {
         guard let url = URL(string: "https://api.unsplash.com/search/photos/?query=\(tag.rawValue)&color=\(tag.rawValue)&per_page=5&order_by=latest&client_id=\(accessKey)") else {
             completion([])
             return
@@ -63,10 +66,9 @@ class UnsplashColorAPI {
             }
             
             do {
-                let photos = try JSONDecoder().decode(Photos.self, from: data)
+                let photos = try self.jsonDecoder.decode(Photos.self, from: data)
                 let result = photos.results
-                let images = result.map { $0.urls.regular }
-                completion(images)
+                completion(result)
             } catch {
                 print("Error in decoding: \(error.localizedDescription)")
                 print("Raw data: \(String(data: data, encoding: .utf8) ?? "")")
