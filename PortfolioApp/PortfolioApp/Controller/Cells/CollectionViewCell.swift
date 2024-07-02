@@ -8,8 +8,17 @@
 import UIKit
 
 class CollectionViewCell: UICollectionViewCell {
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var label: UILabel!
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        layer.cornerRadius = 10
+        contentView.layer.cornerRadius = 10
+        contentView.layer.masksToBounds = true
+    }
     
     func configure(with imageURL: String, userName: String) {
         guard let url = URL(string: imageURL) else {
@@ -32,6 +41,5 @@ class CollectionViewCell: UICollectionViewCell {
             }
         }.resume()
     }
-    
     
 }

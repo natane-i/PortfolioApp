@@ -10,7 +10,7 @@ import UIKit
 enum FooterTab {
     case home
     case tag
-//    case info
+    case info
 }
 
 protocol FooterTabViewDelegate: AnyObject {
@@ -33,7 +33,7 @@ class FooterTabView: UIView {
     }
     
     @IBAction func didTapInfo(_ sender: Any) {
-//        delegate?.footerTabView(self, didselectTab: .info)
+        delegate?.footerTabView(self, didselectTab: .info)
     }
     
     // カスタムビューの初期化メソッド

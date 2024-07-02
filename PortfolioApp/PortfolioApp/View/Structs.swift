@@ -13,15 +13,26 @@ struct Photos: Codable {
 
 struct PhotoData: Codable {
     let id: String
+    let alternative_slugs: Slugs
     let updated_at: Date
     let user: User
     let urls: URLs
+}
+
+struct Slugs: Codable {
+    let ja: String
 }
 
 struct User: Codable {
     let username: String
     let name: String
     let location: String?
+    let links: Links
+}
+
+
+struct Links: Codable {
+    let html: String
 }
 
 struct URLs: Codable {

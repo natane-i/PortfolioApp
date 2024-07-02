@@ -36,16 +36,27 @@ class ViewController: UIViewController, FooterTabViewDelegate {
         return viewController
     }()
     
+    private lazy var infoViewController: InfoViewController = {
+        let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
+        var viewController = storyboard.instantiateViewController(withIdentifier: "InfoViewController") as! InfoViewController
+        add(childViewController: viewController)
+        return viewController
+    }()
+    
     private func switchViewController(selectedTab: FooterTab) {
         switch selectedTab {
         case .home:
             add(childViewController: homeViewController)
             remove(childViewController: tagViewController)
+            remove(childViewController: infoViewController)
         case .tag:
             add(childViewController: tagViewController)
             remove(childViewController: homeViewController)
-//        case .info:
-//
+            remove(childViewController: infoViewController)
+        case .info:
+            add(childViewController: infoViewController)
+            remove(childViewController: homeViewController)
+            remove(childViewController: tagViewController)
         }
         self.selectedTab = selectedTab
         view.bringSubviewToFront(footerTabView)
@@ -70,8 +81,6 @@ class ViewController: UIViewController, FooterTabViewDelegate {
     func footerTabView(_ footerTabView: FooterTabView, didselectTab: FooterTab) {
        switchViewController(selectedTab: didselectTab)
     }
-    
- 
 
 }
 

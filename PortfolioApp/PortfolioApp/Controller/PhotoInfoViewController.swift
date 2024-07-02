@@ -26,11 +26,34 @@ class PhotoInfoViewController: UIViewController {
         imageView.addGestureRecognizer(doubleTapGesture)
         imageView.isUserInteractionEnabled = true
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
+        userNameLabel.isUserInteractionEnabled = true
+        userNameLabel.addGestureRecognizer(tapGesture)
+        
+        let slug = photoDatas[currentIndex].alternative_slugs.ja
+        let jaSlug = slug.replacingOccurrences(of: photoDatas[currentIndex].id, with: "")
+        let newSlug = jaSlug.components(separatedBy: CharacterSet(charactersIn: "-")).joined()
+        self.title = newSlug
+    }
+    
+    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+        let photoData = photoDatas[currentIndex]
+        let userLink = photoData.user.links.html
+        
+        if let url = URL(string: userLink) {
+            UIApplication.shared.open(url)
+        }
     }
 
     func loadImage(at index: Int) {
         let photoData = photoDatas[index]
         let imageURL = photoData.urls.regular
+        let userName = photoData.user.username
+        let distributor = photoData.user.location
+        let updateAt = photoData.updated_at
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy年MM月dd日"
+        let dateString = formatter.string(from: updateAt)
         
         guard let url = URL(string: imageURL) else {
             return
@@ -48,6 +71,9 @@ class PhotoInfoViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.imageView.image = image
+                self.userNameLabel.text = userName
+                self.distributorLabel.text = distributor
+                self.updateAtLabel.text = dateString
             }
         }.resume()
     }
