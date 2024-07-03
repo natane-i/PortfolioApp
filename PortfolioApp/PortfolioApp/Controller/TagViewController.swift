@@ -27,28 +27,43 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
         for (index, button) in colorTagButtons.enumerated() {
             button.tag = index
             button.addTarget(self, action: #selector(colorTagButtonTapped(_:)), for: .touchUpInside)
+            
+            // redボタンを選択状態にする
+            if index == 0 {
+                selectedButtonIndex = 0
+                button.backgroundColor = .black
+                button.setTitle("red", for: .normal)
+                button.setTitleColor(.white, for: .normal)
+            }
         }
     }
     
+    var selectedButtonIndex: Int? // 選択中のボタンのインデックスを保持する変数
+    
     @objc func colorTagButtonTapped(_ sender: UIButton) {
-        // 前に選択されていたボタンの背景色をリセット
-        if let prevIndex = selectedButtonIndex {
-            colorTagButtons[prevIndex].setTitleColor(.black, for: .normal)
-            colorTagButtons[prevIndex].backgroundColor = .clear
-        }
+        // 前に選択されていたボタンの設定をリセット
+          if let prevIndex = selectedButtonIndex {
+              let prevButton = colorTagButtons[prevIndex]
+              prevButton.backgroundColor = .clear
+              
+              let selectTag = ColorTags.allCases[prevIndex]
+              prevButton.setTitle(String(describing: selectTag), for: .normal)
+              prevButton.setTitleColor(.black, for: .normal)
+          }
         
         // 選択されたボタンのインデックスを更新
         selectedButtonIndex = sender.tag
         
+        let selectedTag = ColorTags.allCases[sender.tag]
+        let colorName = String(describing: selectedTag)
+        
         // 選択されたボタンの背景色を変更
         sender.backgroundColor = .black
-        sender.setTitleColor(.white, for: .normal)
-        
-        let selectedTag = ColorTags.allCases[sender.tag]
+        sender.setTitle(colorName, for: .normal)
+        sender.setTitleColor(UIColor.white, for: .normal)
+
         imageFethcer(tag: selectedTag)
     }
-    
-    var selectedButtonIndex: Int? // 選択中のボタンのインデックスを保持する変数
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "TagImageCell", for: indexPath) as! TagCollectionViewCell

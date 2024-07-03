@@ -36,7 +36,6 @@ class TagCollectionViewCell: UICollectionViewCell {
             }
             
             DispatchQueue.main.async {
-                print(self.imageView.bounds.size)
                 self.imageView.image = image
                 self.label.text = userName
             }
