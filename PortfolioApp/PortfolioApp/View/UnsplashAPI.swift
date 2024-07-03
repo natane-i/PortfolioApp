@@ -48,7 +48,7 @@ class UnsplashAPI {
     }
 
     func fetchUnsplashColorAPI(for tag: ColorTags, completion: @escaping ([PhotoData]) -> Void) {
-        guard let url = URL(string: "https://api.unsplash.com/search/photos/?query=\(tag.rawValue)&color=\(tag.rawValue)&per_page=5&order_by=latest&client_id=\(accessKey)") else {
+        guard let url = URL(string: "https://api.unsplash.com/search/photos/?query=\(tag.rawValue)&color=\(tag.rawValue)&per_page=5&client_id=\(accessKey)") else {
             completion([])
             return
         }
