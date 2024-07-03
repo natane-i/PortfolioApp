@@ -30,6 +30,10 @@ class PhotoInfoViewController: UIViewController {
         userNameLabel.isUserInteractionEnabled = true
         userNameLabel.addGestureRecognizer(tapGesture)
         
+        let tappedGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapped(_:)))
+        distributorLabel.isUserInteractionEnabled = true
+        distributorLabel.addGestureRecognizer(tappedGesture)
+        
         let slug = photoDatas[currentIndex].alternative_slugs.ja
         let jaSlug = slug.replacingOccurrences(of: photoDatas[currentIndex].id, with: "")
         let newSlug = jaSlug.components(separatedBy: CharacterSet(charactersIn: "-")).joined()
@@ -41,7 +45,17 @@ class PhotoInfoViewController: UIViewController {
         let userLink = photoData.user.links.html
         
         if let url = URL(string: userLink) {
-            UIApplication.shared.open(url)
+            let webVC = WebViewController(url: url)
+            present(webVC, animated: true, completion: nil)
+        }
+    }
+    
+    @objc func handleTapped(_ sender: UITapGestureRecognizer) {
+        let unsplashLink = "https://unsplash.com/ja"
+        
+        if let url = URL(string: unsplashLink) {
+            let webVC = WebViewController(url: url)
+            present(webVC, animated: true, completion: nil)
         }
     }
 

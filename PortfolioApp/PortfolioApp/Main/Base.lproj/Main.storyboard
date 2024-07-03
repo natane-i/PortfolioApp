@@ -236,16 +236,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N8i-Qb-b8z">
-                                <rect key="frame" x="15" y="74" width="363" height="87"/>
+                                <rect key="frame" x="15" y="74" width="363" height="90.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリについて" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L32-Oj-0Gf">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="25.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="このアプリはUnsplash APIを利用して構築したXXXXXXのポートフォリオアプリです。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vYk-GE-34J">
-                                        <rect key="frame" x="0.0" y="37.333333333333329" width="363" height="49.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="40.666666666666671" width="363" height="49.666666666666671"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -264,23 +264,23 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EOp-nK-io8">
-                                <rect key="frame" x="15" y="191" width="363" height="153"/>
+                                <rect key="frame" x="15" y="194.33333333333331" width="363" height="156.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="謝辞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-JE-FEX">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="25.333333333333332"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="28.666666666666668"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="無料で高品質な写真を提供しているUnsplashに感謝します。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="BLR-au-ygQ">
-                                        <rect key="frame" x="0.0" y="37.333333333333343" width="363" height="49.666666666666657"/>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="無料で高品質な写真を提供しているUnsplashに感謝します。" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="BLR-au-ygQ">
+                                        <rect key="frame" x="0.0" y="40.666666666666657" width="363" height="49.666666666666657"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="info_img_logo" translatesAutoresizingMaskIntoConstraints="NO" id="5e6-JH-XXk">
-                                        <rect key="frame" x="0.0" y="99" width="363" height="54"/>
+                                        <rect key="frame" x="0.0" y="102.33333333333334" width="363" height="54"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -309,10 +309,44 @@
                             <constraint firstItem="EOp-nK-io8" firstAttribute="top" secondItem="N8i-Qb-b8z" secondAttribute="bottom" constant="30" id="uuD-aJ-59C"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="logoImage" destination="5e6-JH-XXk" id="5s1-39-XbM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nWP-eU-1f5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="916.79389312977094" y="750.70422535211276"/>
+        </scene>
+        <!--Web View Controller-->
+        <scene sceneID="ATJ-af-YYz">
+            <objects>
+                <viewController id="j17-oC-8mG" customClass="WebViewController" customModule="PortfolioApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="nDJ-gD-dhj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8q8-4j-cUV">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mmb-i5-Sok"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8q8-4j-cUV" firstAttribute="top" secondItem="Mmb-i5-Sok" secondAttribute="top" id="3TN-YU-SpI"/>
+                            <constraint firstItem="8q8-4j-cUV" firstAttribute="leading" secondItem="Mmb-i5-Sok" secondAttribute="leading" id="5OL-Rm-kEu"/>
+                            <constraint firstItem="8q8-4j-cUV" firstAttribute="trailing" secondItem="Mmb-i5-Sok" secondAttribute="trailing" id="Tml-HM-XV7"/>
+                            <constraint firstItem="Mmb-i5-Sok" firstAttribute="bottom" secondItem="8q8-4j-cUV" secondAttribute="bottom" id="edh-hS-5yk"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u7b-wr-d9c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2195" y="402"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="wog-rR-zSN">
