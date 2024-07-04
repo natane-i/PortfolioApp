@@ -15,6 +15,7 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
     
     var photoDatas: [PhotoData] = []
     let unsplashAPI = UnsplashAPI()
+    var selectedButtonIndex: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,8 +38,6 @@ class TagViewController: UIViewController, UICollectionViewDelegate, UICollectio
             }
         }
     }
-    
-    var selectedButtonIndex: Int? // 選択中のボタンのインデックスを保持する変数
     
     @objc func colorTagButtonTapped(_ sender: UIButton) {
         // 前に選択されていたボタンの設定をリセット

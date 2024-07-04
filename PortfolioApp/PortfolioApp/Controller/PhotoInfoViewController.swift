@@ -8,7 +8,7 @@
 import UIKit
 
 class PhotoInfoViewController: UIViewController {
-
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var distributorLabel: UILabel!
@@ -20,27 +20,34 @@ class PhotoInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadImage(at: currentIndex)
-        
-        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
-        doubleTapGesture.numberOfTapsRequired = 2
-        imageView.addGestureRecognizer(doubleTapGesture)
-        imageView.isUserInteractionEnabled = true
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
-        userNameLabel.isUserInteractionEnabled = true
-        userNameLabel.addGestureRecognizer(tapGesture)
-        
-        let tappedGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapped(_:)))
-        distributorLabel.isUserInteractionEnabled = true
-        distributorLabel.addGestureRecognizer(tappedGesture)
+        setupGesture()
         
         let slug = photoDatas[currentIndex].alternative_slugs.ja
         let jaSlug = slug.replacingOccurrences(of: photoDatas[currentIndex].id, with: "")
-        let newSlug = jaSlug.components(separatedBy: CharacterSet(charactersIn: "-")).joined()
-        self.title = newSlug
+        let slugString = jaSlug.components(separatedBy: CharacterSet(charactersIn: "-")).joined()
+        self.title = slugString
     }
     
-    @objc func handleTap(_ sender: UITapGestureRecognizer) {
+    private func setupGesture() {
+        let tapPhotoGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapPhoto(_:)))
+        tapPhotoGesture.numberOfTapsRequired = 2
+        imageView.addGestureRecognizer(tapPhotoGesture)
+        imageView.isUserInteractionEnabled = true
+        
+        let tapUserNameGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapUserName(_:)))
+        userNameLabel.isUserInteractionEnabled = true
+        userNameLabel.addGestureRecognizer(tapUserNameGesture)
+        
+        let tapDistributorGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapDistributor(_:)))
+        distributorLabel.isUserInteractionEnabled = true
+        distributorLabel.addGestureRecognizer(tapDistributorGesture)
+    }
+    
+    @objc func handleTapPhoto(_ gesture: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "ToDetail", sender: self)
+    }
+    
+    @objc func handleTapUserName(_ sender: UITapGestureRecognizer) {
         let photoData = photoDatas[currentIndex]
         let userLink = photoData.user.links.html
         
@@ -50,7 +57,7 @@ class PhotoInfoViewController: UIViewController {
         }
     }
     
-    @objc func handleTapped(_ sender: UITapGestureRecognizer) {
+    @objc func handleTapDistributor(_ sender: UITapGestureRecognizer) {
         let unsplashLink = "https://unsplash.com/ja"
         
         if let url = URL(string: unsplashLink) {
@@ -58,11 +65,11 @@ class PhotoInfoViewController: UIViewController {
             present(webVC, animated: true, completion: nil)
         }
     }
-
+    
     func loadImage(at index: Int) {
         let photoData = photoDatas[index]
         let imageURL = photoData.urls.regular
-        let userName = photoData.user.username
+        let userName = photoData.user.name
         let distributor = photoData.user.location
         let updateAt = photoData.updated_at
         let formatter = DateFormatter()
@@ -92,17 +99,12 @@ class PhotoInfoViewController: UIViewController {
         }.resume()
     }
     
-    @objc func handleDoubleTap(_ gesture: UITapGestureRecognizer) {
-        performSegue(withIdentifier: "ToDetail", sender: self)
-    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ToDetail" {
             if let photoDetailVC = segue.destination as? PhotoDetailViewController {
-                photoDetailVC.photoDatas = photoDatas
-                photoDetailVC.currentIndex = currentIndex
+                photoDetailVC.photoData = photoDatas[currentIndex].urls.regular
             }
         }
     }
-
+    
 }
