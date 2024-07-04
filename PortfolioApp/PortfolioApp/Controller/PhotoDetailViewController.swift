@@ -12,22 +12,18 @@ class PhotoDetailViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var scrollView: UIScrollView!
     
-    var photoDatas: [PhotoData] = []
-    var currentIndex: Int = 0
+    var photoData: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
         scrollView.delegate = self
-        loadImage(at: currentIndex)
+        loadImage(imageURL: photoData)
         
         setupScrollView()
         setupTapGestureRecognizer()
     }
     
-    func loadImage(at index: Int) {
-        let photoData = photoDatas[index]
-        let imageURL = photoData.urls.regular
-        
+    func loadImage(imageURL: String) {
         guard let url = URL(string: imageURL) else {
             return
         }
@@ -61,7 +57,6 @@ class PhotoDetailViewController: UIViewController {
     
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
         let tapLocation = sender.location(in: imageView)
-        
         let currentScale = scrollView.zoomScale
         let newScale = currentScale == 1.0 ? scrollView.maximumZoomScale : scrollView.minimumZoomScale
         

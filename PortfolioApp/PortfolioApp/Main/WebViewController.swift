@@ -17,7 +17,6 @@ class WebViewController: UIViewController {
           return webView
       }()
     
-    var urlString: String = ""
     var url: URL?
         
         init(url: URL) {

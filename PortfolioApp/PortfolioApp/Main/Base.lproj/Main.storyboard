@@ -239,12 +239,12 @@
                                 <rect key="frame" x="15" y="74" width="363" height="90.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="このアプリについて" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L32-Oj-0Gf">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="28.666666666666668"/>
+                                        <rect key="frame" x="3" y="0.0" width="360" height="28.666666666666668"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="このアプリはUnsplash APIを利用して構築したXXXXXXのポートフォリオアプリです。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vYk-GE-34J">
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="このアプリはUnsplash APIを利用して構築した井上日菜多のポートフォリオアプリです。" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vYk-GE-34J">
                                         <rect key="frame" x="0.0" y="40.666666666666671" width="363" height="49.666666666666671"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -257,7 +257,7 @@
                                     <constraint firstAttribute="trailing" secondItem="L32-Oj-0Gf" secondAttribute="trailing" id="4zP-8U-wye"/>
                                     <constraint firstAttribute="bottom" secondItem="vYk-GE-34J" secondAttribute="bottom" id="BeX-HL-XUz"/>
                                     <constraint firstAttribute="trailing" secondItem="vYk-GE-34J" secondAttribute="trailing" id="K9T-8d-zyl"/>
-                                    <constraint firstItem="L32-Oj-0Gf" firstAttribute="leading" secondItem="N8i-Qb-b8z" secondAttribute="leading" id="R3q-Od-kKu"/>
+                                    <constraint firstItem="L32-Oj-0Gf" firstAttribute="leading" secondItem="N8i-Qb-b8z" secondAttribute="leading" constant="3" id="R3q-Od-kKu"/>
                                     <constraint firstItem="L32-Oj-0Gf" firstAttribute="top" secondItem="N8i-Qb-b8z" secondAttribute="top" id="UEE-LM-vlO"/>
                                     <constraint firstItem="vYk-GE-34J" firstAttribute="leading" secondItem="N8i-Qb-b8z" secondAttribute="leading" id="teg-Lh-Lcq"/>
                                     <constraint firstItem="vYk-GE-34J" firstAttribute="top" secondItem="L32-Oj-0Gf" secondAttribute="bottom" constant="12" id="xV3-yR-0f4"/>
@@ -267,7 +267,7 @@
                                 <rect key="frame" x="15" y="194.33333333333331" width="363" height="156.33333333333331"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="謝辞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pox-JE-FEX">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="28.666666666666668"/>
+                                        <rect key="frame" x="3" y="0.0" width="360" height="28.666666666666668"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -290,7 +290,7 @@
                                     <constraint firstItem="Pox-JE-FEX" firstAttribute="top" secondItem="EOp-nK-io8" secondAttribute="top" id="W3V-MR-6nu"/>
                                     <constraint firstItem="5e6-JH-XXk" firstAttribute="top" secondItem="BLR-au-ygQ" secondAttribute="bottom" constant="12" id="Yql-Dd-cmj"/>
                                     <constraint firstItem="BLR-au-ygQ" firstAttribute="leading" secondItem="EOp-nK-io8" secondAttribute="leading" id="ZYP-NQ-MNq"/>
-                                    <constraint firstItem="Pox-JE-FEX" firstAttribute="leading" secondItem="EOp-nK-io8" secondAttribute="leading" id="efP-rI-zAk"/>
+                                    <constraint firstItem="Pox-JE-FEX" firstAttribute="leading" secondItem="EOp-nK-io8" secondAttribute="leading" constant="3" id="efP-rI-zAk"/>
                                     <constraint firstAttribute="trailing" secondItem="BLR-au-ygQ" secondAttribute="trailing" id="hQD-UG-KMy"/>
                                     <constraint firstItem="BLR-au-ygQ" firstAttribute="top" secondItem="Pox-JE-FEX" secondAttribute="bottom" constant="12" id="iNJ-qg-TC9"/>
                                     <constraint firstAttribute="trailing" secondItem="Pox-JE-FEX" secondAttribute="trailing" id="oFl-bc-M58"/>
@@ -404,7 +404,7 @@
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
-                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="lm7-p5-Ed1">
+                                <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="SectionHeader" id="lm7-p5-Ed1">
                                     <rect key="frame" x="0.0" y="0.0" width="363" height="50"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
@@ -585,7 +585,9 @@
                             <constraint firstItem="8BC-hk-lJE" firstAttribute="trailing" secondItem="mMH-MO-IOG" secondAttribute="trailing" constant="15" id="xUI-Md-Nh6"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="iNg-bE-Meu"/>
+                    <navigationItem key="navigationItem" id="iNg-bE-Meu">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="56y-SO-U3H"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="distributorLabel" destination="tgb-aD-edi" id="6QW-el-IvT"/>
                         <outlet property="imageView" destination="zDc-59-Mc9" id="Lfr-bo-6aB"/>
@@ -614,6 +616,7 @@
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0OP-xS-fZS">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                                <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18431372549019609" alpha="1" colorSpace="calibratedRGB"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -635,6 +638,9 @@
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="5Te-EG-xsC"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="svV-ON-6jS"/>
+                                <connections>
+                                    <outlet property="delegate" destination="cDH-Ny-8h7" id="TA0-eu-ndl"/>
+                                </connections>
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zl5-c6-IcP"/>
@@ -646,7 +652,9 @@
                             <constraint firstItem="XkB-a9-tYv" firstAttribute="leading" secondItem="zl5-c6-IcP" secondAttribute="leading" id="y6L-G9-UkQ"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="B8M-jr-dZe"/>
+                    <navigationItem key="navigationItem" id="B8M-jr-dZe">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="sND-AT-mRk"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageView" destination="0OP-xS-fZS" id="hlu-jf-Spn"/>
                         <outlet property="scrollView" destination="XkB-a9-tYv" id="nHQ-gv-dLA"/>
@@ -658,7 +666,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="VGV-Ji-H5a"/>
+        <segue reference="pyo-sl-u5V"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="info_img_logo" width="240" height="54"/>
