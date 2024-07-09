@@ -14,7 +14,7 @@ ViewControllerはaddSubviewメソッド等を利用することで、タブビ�
 AIに質問したり、さまざまなサイトを参照したりしましたが、良い回答を得られませんでした。  
 ストーリーボードの設定を１つずつ確認することで、原因がセルのContentModeにあることを突き止めました。
 
-## 使用させていただいたAPI
+## 使用したAPI
 [Unsplash API](https://unsplash.com/oauth/applications)
 
 ## アプリ画面
