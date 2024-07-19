@@ -48,18 +48,18 @@ class PhotoDetailViewController: UIViewController {
         scrollView.minimumZoomScale = 1.0
         scrollView.maximumZoomScale = 2.5
     }
-    
+
     private func setupTapGestureRecognizer() {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         tapGestureRecognizer.numberOfTapsRequired = 1
         scrollView.addGestureRecognizer(tapGestureRecognizer)
     }
-    
+
     @objc private func handleTap(_ sender: UITapGestureRecognizer) {
         let tapLocation = sender.location(in: imageView)
         let currentScale = scrollView.zoomScale
         let newScale = currentScale == 1.0 ? scrollView.maximumZoomScale : scrollView.minimumZoomScale
-        
+
         let zoomRect = zoomRectForScale(scale: newScale, center: tapLocation)
         scrollView.zoom(to: zoomRect, animated: true)
     }
